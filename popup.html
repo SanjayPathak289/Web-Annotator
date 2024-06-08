@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Annotator</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="colorPicker"></div>
+        <div id="addCustomColor">
+            <input type="color" id="favColor" name="favcolor" value="#ff0000">
+            <button id="saveColorBtn" class="btn">Save</button>
+        </div>
+        <div id="fontPicker">
+            <select name="fontSelect" id="fontSelect">
+                <option value="Default" selected>Default</option>
+                <option value="Ariel">Ariel</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Cursive">Cursive</option>
+                <option value="Bold">Bold</option>
+                <option value="Italic">Italic</option>
+            </select>
+        </div>
+
+        <div id="searchDiv">
+            <button id="searchBtn" class="btn">
+                Search
+            </button>
+
+            <div id="searchAnnotation">
+                <input type="text" id="searchInput" placeholder="Search...">
+            </div>
+
+            <div id="searchAnnotationByDate">
+                <div>
+                    <span>From : </span><input type="date" id="dateInputFrom" required>
+                </div>
+                <div>
+                    <span>To : </span><input type="date" id="dateInputTo" required>
+                </div>
+                <button id="submitDateFilter" class="btn">Done</button>
+            </div>
+        </div>
+
+
+        <div id="viewAnnotations">
+
+        </div>
+        <button id="downloadBtn" class="btn">
+            Download
+        </button>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+</body>
+
+</html>

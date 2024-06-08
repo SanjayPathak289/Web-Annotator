@@ -1,0 +1,179 @@
+:root {
+    --primary: #9381FF;
+    --secondary: #B8B8FF;
+    --onprimary: #F8F7FF;
+}
+
+#container {
+    width: 250px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+.active {
+    display: block !important;
+}
+
+#colorPicker {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1rem;
+    background-color: var(--onprimary);
+    border-radius: 10px;
+}
+
+#addCustomColor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+#favColor {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+#favColor::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#favColor::-webkit-color-swatch {
+    border: none;
+    border-radius: 5px;
+}
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--onprimary);
+    transition: all 0.1s linear;
+}
+
+.btn:hover {
+    scale: 1.1;
+}
+
+.colorOption {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+}
+
+#favColor {
+    border-radius: 25%;
+}
+
+.crossBtn {
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    transition: all 0.2s linear;
+    display: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+}
+
+#fontPicker {
+    width: 100%;
+}
+
+#fontSelect {
+    width: inherit;
+    padding: 2px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--onprimary);
+    border-radius: 5px;
+}
+
+#fontSelect {
+    background-color: var(--onprimary);
+    color: var(--primary);
+}
+
+#searchAnnotation {
+    width: 100%;
+    display: none;
+    transition: all 0.5s linear;
+}
+
+#searchAnnotation input {
+    padding: 5px 3px 5px 3px;
+    font-size: 16px;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#searchAnnotationByDate {
+    display: none;
+}
+
+
+#searchAnnotationByDate div input {
+    padding: 5px 3px 5px 3px;
+    font-size: 16px;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#searchAnnotation span {
+    font-size: 16px;
+}
+
+#searchBtn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#searchBtn:hover {
+    scale: 1.03;
+}
+
+#submitDateFilter {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#submitDateFilter:hover {
+    scale: 1.03;
+}
+
+#downloadBtn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#downloadBtn:hover {
+    scale: 1.03;
+}
