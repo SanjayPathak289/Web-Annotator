@@ -1,3 +1,7 @@
+## Attention
+Hello Tinkering Lab, Due to my video recording app the annotator extension popup menu will not show in the demo video. So when i am moving my cursor to right side of window in the demo video I was showing in the popup menu which was not captured by video recorder app. You will see it when you install this extension.
+Sorry for that, I saw this in the last moment.
+
 ## Installation
 
 1. **Download the Extension**: Download folder
