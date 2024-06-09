@@ -11,16 +11,19 @@
 <body>
     <div id="container">
 
-        <div id="colorPicker"></div>
+        <div id="colorPicker">
+            
+        </div>
         <div id="addCustomColor">
-            <input type="color" id="favColor" name="favcolor" value="#ff0000">
+            <input type="color" id="favColor" name="favcolor" value="#00f70f">
             <button id="saveColorBtn" class="btn">Save</button>
         </div>
         <div id="fontPicker">
             <select name="fontSelect" id="fontSelect">
                 <option value="Default" selected>Default</option>
-                <option value="Ariel">Ariel</option>
-                <option value="Roboto">Roboto</option>
+                <option value="Arial">Arial</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Courier New">Courier New</option>
                 <option value="Cursive">Cursive</option>
                 <option value="Bold">Bold</option>
                 <option value="Italic">Italic</option>
@@ -47,13 +50,46 @@
             </div>
         </div>
 
-
-        <div id="viewAnnotations">
+        <div id="viewMyNotes">
+            <button id="viewNoteBtn" class="btn">
+                My Highlights
+            </button>
+            <div id="viewAnnotations">
+            </div>
 
         </div>
         <button id="downloadBtn" class="btn">
-            Download
+            <span id="btnText">Download</span>
+            <svg class="container" viewBox="0 0 40 40" height="40" width="40" id="loader">
+                <circle class="track" cx="20" cy="20" r="27" pathlength="100" stroke-width="7px" fill="none" />
+                <circle class="car" cx="20" cy="20" r="27" pathlength="100" stroke-width="7px" fill="none" />
+            </svg>
         </button>
+        <div id="alertUser">
+            Notes will be printed on last page
+        </div>
+        <div id="shortcuts">
+            <button id="viewShortcuts" class="btn">
+                Shortcuts
+            </button>
+            <div id="shortcutsDiv">
+                <p>
+                    <span class="keyBtn">
+                        B
+                    </span>
+                    <span class="keyText">Jump to next shortcut</span>
+                </p>
+                <p>
+                    <span class="keyBtn">
+                        Ctrl
+                    </span> &nbsp;+&nbsp;
+                    <span class="keyBtn">
+                        Q
+                    </span>
+                    <span class="keyText">Open notes</span>
+                </p>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="popup.js"></script>

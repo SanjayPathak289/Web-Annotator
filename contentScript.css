@@ -3,29 +3,9 @@
 }
 
 :root {
-    --primary: #9381FF;
+    --primary: #9381ff;
     --secondary: #B8B8FF;
     --onprimary: #F8F7FF;
-}
-
-.highlight-yellow {
-    background-color: yellow;
-}
-
-.highlight-pink {
-    background-color: pink;
-}
-
-.highlight-blue {
-    background-color: blue;
-}
-
-.highlight-red {
-    background-color: red;
-}
-
-.highlight-greenyellow {
-    background-color: greenyellow;
 }
 
 #hover-box {
@@ -38,6 +18,8 @@
     z-index: 1000;
     width: 300px;
     height: 300px;
+    color: white !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 #tabDiv {
@@ -45,6 +27,7 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
+    position: relative;
     height: 30px;
     overflow-x: scroll;
     -ms-overflow-style: none;
@@ -108,6 +91,7 @@
     font-weight: 600;
     width: 100%;
     text-align: center;
+    color: var(--primary) !important;
 }
 
 #udDiv {
@@ -124,4 +108,102 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
+}
+
+
+#settingBtn {
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    right: 10px;
+    top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#settingBtn img {
+    width: 25px;
+    background: transparent;
+    -webkit-filter: drop-shadow(2px 2px 0 black) drop-shadow(-2px -2px 0 black);
+    filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+}
+
+#favColor,
+#favTextColor {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+#favColor::-webkit-color-swatch-wrapper,
+#favTextColor::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#favColor::-webkit-color-swatch,
+#favTextColor::-webkit-color-swatch {
+    border: none;
+    border-radius: 5px;
+}
+
+#fontPicker {
+    width: 100%;
+}
+
+#fontSelect {
+    width: inherit;
+    padding: 2px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--onprimary);
+    border-radius: 5px;
+}
+
+#fontSelect {
+    background-color: var(--onprimary);
+    color: var(--primary);
+}
+
+#settingDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+    color: black !important;
+}
+
+#saveSettingBtn {
+    width: 100%;
+}
+
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--onprimary);
+    transition: all 0.1s linear;
+}
+
+.btn:hover {
+    scale: 1.05;
+}
+
+.settingParams {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
 }

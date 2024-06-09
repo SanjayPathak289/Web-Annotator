@@ -19,7 +19,9 @@
                 "<all_urls>"
             ],
             "js": [
-                "contentScript.js"
+                "contentScript.js",
+                "libs/html2canvas.js",
+                "libs/jspdf.js"
             ],
             "css": [
                 "contentScript.css"
@@ -32,7 +34,9 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "demo.js"
+                "demo.js",
+                "libs/*.js",
+                "assets/setting.png"
             ],
             "matches": [
                 "<all_urls>"

@@ -5,7 +5,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 });
 
 chrome.runtime.onInstalled.addListener(() => {
-    let colors = ["red", "blue", "yellow", "pink", "greenyellow"];
+    let colors = ["#ff0000", "#0000ff", "#ffff00", "#ffc0cb", "#adff2f"];
     chrome.storage.sync.get("colors", (res) => {
         if (!res["colors"] || res["colors"].length == 0) {
             chrome.storage.sync.set({

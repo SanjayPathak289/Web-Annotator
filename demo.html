@@ -1,130 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tab System</title>
-    <script src="https://cdn.jsdelivr.net/gh/SanjayPathak289/demo/demo.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Button Example</title>
+  <style>
+    .scrollable-container {
+      width: 300px;
+      height: 200px;
+      overflow-x: auto;
+      border: 1px solid black;
+      position: relative;
+    }
 
-        .tab-container {
-            width: 80%;
-            margin: 0 auto;
-        }
+    .content {
+      width: 1000px; /* Width larger than the container to enable scrolling */
+      height: 100%;
+      background-color: lightgray;
+    }
 
-        .tabs {
-            overflow: hidden;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .tabs .tab-link {
-            background-color: #f1f1f1;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
-        }
-
-        .tabs .tab-link:hover {
-            background-color: #ddd;
-        }
-
-        .tabs .tab-link.active {
-            background-color: #ccc;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 16px 12px;
-            border-top: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-    </style>
+    .fixed-button {
+      position: fixed;
+      right: 0;
+      top: 10px; /* Adjust based on your needs */
+      z-index: 100; /* Ensure the button is above other content */
+    }
+  </style>
 </head>
-
 <body>
-    <div id="main" class="tab-container">
-        <div class="tabs">
-            <button class="tab-link" onclick="openTab(event, 'Note1')">Note 1</button>
-            <button class="tab-link" onclick="openTab(event, 'Note2')">Note 2</button>
-            <button class="tab-link" onclick="openTab(event, 'Note3')">Note 3</button>
-        </div>
-
-        <div id="Note1" class="tab-content">
-            <h3>Note 1</h3>
-            <p>This is the content of Note 1.</p>
-        </div>
-
-        <div id="Note2" class="tab-content">
-            <h3>Note 2</h3>
-            <p>This is the content of Note 2.</p>
-        </div>
-
-        <div id="Note3" class="tab-content">
-            <h3>Note 3</h3>
-            <p>This is the content of Note 3.</p>
-        </div>
-
+  <div class="scrollable-container">
+    <div class="content">
+      <!-- Add your scrollable content here -->
+      <div style="height: 200px;">Some scrollable content here</div>
     </div>
-    <button id="print">PRINT</button>
-    <script>
-        function openTab(evt, noteName) {
-            var i, tabContent, tabLinks;
+  </div>
+  <button class="fixed-button">Fixed Button</button>
 
-            // Get all elements with class="tab-content" and hide them
-            tabContent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabContent.length; i++) {
-                tabContent[i].style.display = "none";
-            }
+  <script>
+    const fixedButton = document.querySelector('.fixed-button');
+    const scrollableContainer = document.querySelector('.scrollable-container');
 
-            // Get all elements with class="tab-link" and remove the class "active"
-            tabLinks = document.getElementsByClassName("tab-link");
-            for (i = 0; i < tabLinks.length; i++) {
-                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-            }
-
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.getElementById(noteName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-
-        // Open the first tab by default
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementsByClassName("tab-link")[0].click();
-        });
-
-
-        document.getElementById('print').addEventListener('click', function () {
-            // Capture the content of the #content div
-            html2canvas(document.body).then(canvas => {
-                // Initialize jsPDF
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'pt', 'a4');
-
-                // Add the canvas image to the PDF
-                const imgData = canvas.toDataURL('image/png');
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                pdf.save('document.pdf');
-            });
-        });
-    </script>
-</body>
-
-</html>
+    function adjustButtonPosition() {
+      const rect = scrollableContainer.getBoundingClientRect();
+      fixedButton.style.right = `${Math.max(0, window.innerWidth - rect.right)}px`;
+  

@@ -4,12 +4,23 @@
     --onprimary: #F8F7FF;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
 #container {
     width: 250px;
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; */
+    /* overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#container::-webkit-scrollbar {
+    display: none; */
 }
 
 .active {
@@ -163,6 +174,9 @@
 #submitDateFilter {
     width: 100%;
     margin-top: 10px;
+    background-color: var(--onprimary);
+    border: 2px solid var(--primary);
+    color: var(--primary);
 }
 
 #submitDateFilter:hover {
@@ -172,8 +186,142 @@
 #downloadBtn {
     margin-top: 10px;
     width: 100%;
+    text-align: center;
 }
 
 #downloadBtn:hover {
     scale: 1.03;
+}
+
+.highlightDiv {
+    margin-top: 10px;
+}
+
+.highlightTextDiv {
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--onprimary);
+    padding: 5px 5px 5px 5px;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+}
+
+.highlightNotesDiv {
+    font-size: 14px;
+}
+
+.deleteHighlightBtn {
+    flex: 1;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border: none;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    cursor: pointer;
+}
+
+#viewNoteBtn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#viewNoteBtn:hover {
+    scale: 1.03;
+}
+
+#viewAnnotations {
+    display: none;
+}
+
+#loader {
+    display: none;
+}
+
+.container {
+    --uib-size: 13px;
+    --uib-color: white;
+    --uib-speed: .8s;
+    --uib-bg-opacity: 0.1;
+    height: var(--uib-size);
+    width: var(--uib-size);
+    transform-origin: center;
+    animation: rotate var(--uib-speed) linear infinite;
+    will-change: transform;
+    overflow: visible;
+}
+
+.car {
+    fill: none;
+    stroke: var(--uib-color);
+    stroke-dasharray: 25, 75;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transition: stroke 0.5s ease;
+}
+
+.track {
+    fill: none;
+    stroke: var(--uib-color);
+    opacity: var(--uib-bg-opacity);
+    transition: stroke 0.5s ease;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#alertUser {
+    display: none;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+#viewShortcuts {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#viewShortcuts:hover {
+    scale: 1.03;
+}
+
+#shortcutsDiv {
+    display: none;
+    padding: 10px;
+}
+
+#shortcutsDiv p {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.keyBtn {
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keyText {
+    margin: auto;
 }
